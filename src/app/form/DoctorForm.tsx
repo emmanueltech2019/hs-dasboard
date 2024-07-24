@@ -60,7 +60,7 @@ const DoctorForm: React.FC = () => {
     
     axios({
       method: 'post',
-      url: 'http://localhost:4000/user/create-doctor',
+      url: 'https://14hsdashboard.devemmy.com/user/create-doctor',
       data: formData,
     }).then((response) => {
       console.log(response)
