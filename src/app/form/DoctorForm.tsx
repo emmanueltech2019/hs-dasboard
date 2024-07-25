@@ -3,6 +3,7 @@ import React, { useState, ChangeEvent } from 'react'
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import docFormIllustration from '../components/img/doctor (2).jpeg'
+import axios from "axios"
 
 interface YourFormDataInterface {
   firstName: string;
@@ -65,6 +66,28 @@ const DoctorForm: React.FC = () => {
     setReviewArray([]);
     setSpecialtiesArray([]);
     setImage(null);
+    const formData = new FormData()
+    formData.append('firstName', myFormData.firstName);
+    
+    formData.append('lastName', myFormData.lastName);
+    formData.append('rating', myFormData.rating);
+    formData.append('avatar', myFormData.image);
+    formData.append('bio', myFormData.bio);
+    formData.append('city', myFormData.city);
+    formData.append('brand', myFormData.brand);
+    formData.append('reviews', JSON.stringify(myFormData.reviews));
+    formData.append('specialties', JSON.stringify(myFormData.specialties));
+    
+    axios({
+      method: 'post',
+      url: 'https://14hsdashboard.devemmy.com/user/create-doctor',
+      data: formData,
+    }).then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+       console.error('Error:', error);
+     });
 
   }
 
@@ -288,3 +311,6 @@ const DoctorForm: React.FC = () => {
 }
 
 export default DoctorForm
+
+
+
