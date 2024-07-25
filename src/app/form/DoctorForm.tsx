@@ -47,6 +47,25 @@ const DoctorForm: React.FC = () => {
     event.preventDefault();
     console.log(myFormData)
 
+    setMyFormData({
+      firstName: "",
+      lastName: "",
+      rating: "",
+      image: null,
+      bio: "",
+      city: "",
+      brand: "",
+      reviews: [],
+      specialties: [],
+    });
+  
+    // Clear individual fields
+    setInputValue('');
+    setReviewText('');
+    setReviewArray([]);
+    setSpecialtiesArray([]);
+    setImage(null);
+
   }
 
 
@@ -228,7 +247,7 @@ const DoctorForm: React.FC = () => {
                 <h3 className='font-[500] text-[#293670] text-[20px]'>Specialties</h3>
               </header>
               <div className="input grid grid-cols-2 gap-3 text-[13px]">
-                {['Hernia', 'Gallbladder', 'Da Vinci Robotic Surgery', 'Breast Cancer', 'Small intestine', 'Mastectomy', 'Colon Surgery', 'Endoscopy', 'Healthcare Management', 'EMR', 'Physicians', 'Clinical Research', 'Weight Loss Coaching', 'Bariatric Surgery', 'General Surgery'].map((specialty, index) => (
+                {['Hernia', 'Gallbladder', 'Da Vinci Robotic Surgery', 'Breast Cancer', 'Small intestine', 'Mastectomy', 'Colon Surgery', 'Endoscopy'].map((specialty, index) => (
                   <div key={index} className={`flex justify-between items-center bg-[#edf4fc] text-[#293670] font-[700] p-2 rounded-md ${specialtiesArray.includes(specialty) ? 'border-[#3475ee] border-2' : ''
                     }`} onClick={(event) => handleClick(specialty, event)}>
                     <button>{specialty}</button>
