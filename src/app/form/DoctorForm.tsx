@@ -36,11 +36,11 @@ const DoctorForm: React.FC = () => {
   const [myFormData, setMyFormData] = useState<YourFormDataInterface>({
     firstName: "",
     lastName: "",
-    rating: "",
+    rating: "5.0",
     image: null,
     bio: "",
-    city: "Austin",
-    brand: "AHS",
+    city: "Charlotte",
+    brand: "CHS",
     reviews: [],
     specialties: [],
   });
@@ -53,11 +53,11 @@ const DoctorForm: React.FC = () => {
     setMyFormData({
       firstName: "",
       lastName: "",
-      rating: "",
+      rating: "5.0",
       image: null,
       bio: "",
-      city: "Austin",
-      brand: "AHS",
+      city: "Charlotte",
+      brand: "CHS",
       reviews: [],
       specialties: [],
     });
@@ -94,6 +94,7 @@ const DoctorForm: React.FC = () => {
 
   const cityOptions = [
     { key: 'Austin', label: 'Austin' },
+    { key: 'Charlotte', label: 'Charlotte' },
     { key: 'Dallas', label: 'Dallas' },
     { key: 'Houston', label: 'Houston' },
     { key: 'Miami', label: 'Miami' },
@@ -110,6 +111,7 @@ const DoctorForm: React.FC = () => {
   
   const brandOptions = [
     { key: 'AHS', label: 'AHS' },
+    { key: 'CHS', label: 'CHS' },
     { key: 'DHS', label: 'DHS' },
     { key: 'HHS', label: 'HHS' },
     { key: 'MHS', label: 'MHS' },
